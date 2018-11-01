@@ -1,0 +1,11 @@
+Actualmente no se encuentran las vista, solo eta la estructura general de como se deven de crear los servicios
+
+para poder devolver una respuesta con json,
+
+en esta version solo se incluyen los recursos necesarios para poder hacer los cruds necesarios.
+
+
+-- Incluyo en este tambien una archivo JSON que es necesario que lo importen en postman..
+postman es un cliente rest, el cual nos permite hacer puebas, antes de integrarlo con la vista web.
+
+ademas incluyo la bd

@@ -6,12 +6,18 @@
  * Time: 11:06 PM
  */
 
-require('../config/conexion.php');
-$context = new clientConex();
-class crudUsuario
-{
-    function crear(){
+require_once('../config/libORM.php');
 
+class crudUsuario extends clientConex
+{
+    function crear($nombre, $correo, $contrasena, $estado, $idCliente){
+        $data = $this->prepareData($nombre, $correo, $contrasena, $estado, $idCliente);
+        if($this->insertDataTable('usuario', $data)){
+            $response['msg'] = 'OK';
+        }else{
+            $response['msg'] = "Ha ocurrido un error al guardar el usuario";
+        }
+        return $response;
     }
 
     function update(){
@@ -26,11 +32,12 @@ class crudUsuario
 
     }
 
-    function prepareData(){
-        $data['asunto'] = '"'.$_POST['asunto'].'"';
-        $data['fecha'] = '"'.$_POST['fecha'].'"';
-        $data['lugar'] = '"'.$_POST['lugar'].'"';
-        $data['descripcion'] = '"'.$_POST['descripcion'].'"';
-        $data['estado'] = '"'.$_POST['estado'].'"';
+    function prepareData($nombre, $correo, $contrasena, $estado, $idCliente){
+        $data['NOMBRE'] = '"'.$nombre.'"';
+        $data['correo'] = '"'.$correo.'"';
+        $data['contrasena'] = '"'.$contrasena.'"';
+        $data['estado'] = '"'.$estado.'"';
+        $data['ID_CLIENTE'] = '"'.$idCliente.'"';
+        return $data;
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-class clientConex{
+class clientConex {
     private $host = 'localhost';
     private $user = 'root';
     private $password = '';
@@ -93,6 +93,23 @@ class clientConex{
     }
     // insert a la base de datos
     function insertDataTable($tabla, $data){
+        $sql = $this->prepareSql($tabla, $data);
+        $conexionDB = $this->conectedDB();
+        $result = $conexionDB->prepare($sql);
+        $result->execute();
+        return $result;
+    }
+
+    // insert a la base de datos
+    function insertDataTableReturning($tabla, $data){
+        $sql = $this->prepareSql($tabla, $data);
+        $conexionDB = $this->conectedDB();
+        $result = $conexionDB->prepare($sql);
+        $result->execute();
+        return $conexionDB->lastInsertId();
+    }
+
+    function prepareSql($tabla, $data){
         $sql = 'INSERT INTO '.$tabla.' (';
         $i = 1;
         foreach ($data as $key => $value) {
@@ -111,11 +128,9 @@ class clientConex{
             }else $sql .= ');';
             $i++;
         }
-        $conexionDB = $this->conectedDB();
-        $result = $conexionDB->prepare($sql);
-        $result->execute();
-        return $result;
+        return $sql;
     }
+
     // actualizar base de datos
     function updateDataTable($tabla, $data, $condicion){
         $sql = 'UPDATE '.$tabla.' SET ';
