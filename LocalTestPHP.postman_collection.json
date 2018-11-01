@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "eea0ee4b-c4f6-482c-9d1b-614a5f5f8658",
+		"name": "LocalTestPHP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost/tiendaOnline/core/rest/viewRegistrar.php",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombreC",
+							"value": "DASDASD",
+							"type": "text"
+						},
+						{
+							"key": "apellido",
+							"value": "adasdasd",
+							"type": "text"
+						},
+						{
+							"key": "direcc",
+							"value": "adsdasdas",
+							"type": "text"
+						},
+						{
+							"key": "telefono",
+							"value": "75757575",
+							"type": "text"
+						},
+						{
+							"key": "edad",
+							"value": "45",
+							"type": "text"
+						},
+						{
+							"key": "nombreu",
+							"value": "usi",
+							"type": "text"
+						},
+						{
+							"key": "correo",
+							"value": "dasdasdasdasd",
+							"type": "text"
+						},
+						{
+							"key": "contrase",
+							"value": "dadasdas",
+							"type": "text"
+						},
+						{
+							"key": "estado",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/tiendaOnline/core/rest/viewRegistrar.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tiendaOnline",
+						"core",
+						"rest",
+						"viewRegistrar.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
