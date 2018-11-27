@@ -25,6 +25,21 @@ class crudCliente extends clientConex
     }
 
     function listar(){
+        $resultQuery = $this->consultar(['cliente cus'],['cus.*']);
+        $i = 0;
+        /*Recorrer el arreglo de resultados*/
+        while($fila = $resultQuery->fetch()){
+            $response['data'][$i]['id']=$fila['ID_CLIENTE'];
+            $response['data'][$i]['nombre']=$fila['NOMBRE'];
+            $response['data'][$i]['apellido']=$fila['APELLIDO'];
+            $response['data'][$i]['direccion']=$fila['DIRECCION'];
+            $response['data'][$i]['telefono']=$fila['TELEFONO'];
+            $response['data'][$i]['edad']=$fila['EDAD'];
+            $i++;
+        }
+        /*Devolver respuesta positiva al obtener registros*/
+        $response['getData'] = "OK";
+        return $response;
 
     }
 

@@ -32,6 +32,17 @@ class crudUsuario extends clientConex
 
     }
 
+    function validarUsuario($username){
+        $resultQuery = $this->consultar(['usuario'],['correo','contrasena'], "WHERE correo='".$username."'");
+        if ($resultQuery->rowCount() > 0) {
+            $response = $resultQuery->fetch();
+        }else{
+            $response = array();
+        }
+        return $response;
+    }
+
+
     function prepareData($nombre, $correo, $contrasena, $estado, $idCliente){
         $data['NOMBRE'] = '"'.$nombre.'"';
         $data['correo'] = '"'.$correo.'"';
