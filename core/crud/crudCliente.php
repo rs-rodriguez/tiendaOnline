@@ -16,7 +16,10 @@ class crudCliente extends clientConex
         return $result;
     }
 
-    function update(){
+    function update($nombre, $apellido, $direccion, $telefono, $edad, $id){
+        $data = $this->prepareData($nombre, $apellido, $direccion, $telefono, $edad, $id);
+        $result = $this->updateDataTable('cliente', $data, 'ID_CLIENTE ='.$id);
+        return $result;
 
     }
 
@@ -43,7 +46,10 @@ class crudCliente extends clientConex
 
     }
 
-    function prepareData($nombre, $apellido, $direccion, $telefono, $edad){
+    function prepareData($nombre, $apellido, $direccion, $telefono, $edad, $id=null){
+        if ($id != null){
+            $data['ID_CLIENTE'] = '"'.$id.'"';
+        }
         $data['NOMBRE'] = '"'.$nombre.'"';
         $data['APELLIDO'] = '"'.$apellido.'"';
         $data['DIRECCION'] = '"'.$direccion.'"';
