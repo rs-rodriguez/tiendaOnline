@@ -14,15 +14,14 @@
     }else{
         $result = $users->validarUsuario($_POST['username']);
         if (sizeof($result) > 0){
-            $response['msg'] = 'OK';
-            $response['acceso'] = 'Autorizado';
-            $_SESSION['email'] = $result['correo'];
-            /*
-             * else{
-                    $response['msg'] = 'contraseña incorrecta';
-                    $response['acceso'] = 'acceso denegado';
-                }
-             */
+            if($_POST['password'] == $result['contrasena']){
+                $response['msg'] = 'OK';
+                $response['acceso'] = 'Autorizado';
+                $_SESSION['email'] = $result['correo'];   
+            }else{
+                $response['msg'] = 'contraseña incorrecta';
+                $response['acceso'] = 'acceso denegado';
+            }
         }else{
             $response['msg'] = 'No existe usuario';
             $response['acceso'] = 'acceso denegado';
