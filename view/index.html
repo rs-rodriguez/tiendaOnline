@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda Online</title>
+    <link rel="stylesheet" href="resources/css/bootstrap.css" />
+    <link rel="stylesheet" href="resources/css/bootstrap-grid.css" />
+    <link rel="stylesheet" href="resources/css/bootstrap-reboot.css" />
+    <link rel="stylesheet" href="resources/css/login.css" />
+    <script type="application/javascript" src="resources/js/jquery-3.3.1.min.js"></script>
+    <script type="application/javascript" src="resources/js/bootstrap.js"></script>
+    <script type="application/javascript" src="resources/js/login.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <main role="main">
+        <div class="container">
+            <div class="card card-container">
+                <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+                <p id="profile-name" class="profile-name-card"></p>
+                <form class="form-signin">
+                    <span id="reauth-email" class="reauth-email"></span>
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Correo" required autofocus>
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Iniciar Sesión</button>
+                </form><!-- /form -->
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="button">Registrarse</button>
+            </div><!-- /card-container -->
+        </div><!-- /container -->
+    </main>
+</div>
+</body>
+</html>
