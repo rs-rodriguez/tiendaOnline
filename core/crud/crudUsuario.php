@@ -33,7 +33,12 @@ class crudUsuario extends clientConex
         $i = 0;
         /*Recorrer el arreglo de resultados*/
         while($fila = $resultQuery->fetch()){
-            $response['data'][$i]['id']=$fila['ID_CLIENTE'];
+            $response['data'][$i]['id']=$fila['ID_USUARIO'];
+            $response['data'][$i]['nombreU']=$fila['NOMBREU'];
+            $response['data'][$i]['contrasena']=$fila['contrasena'];
+            $response['data'][$i]['correo']=$fila['correo'];
+            $response['data'][$i]['estado']=$fila['estado'];
+            $response['data'][$i]['idcliente']=$fila['ID_CLIENTE'];
             $response['data'][$i]['nombre']=$fila['NOMBRE'];
             $response['data'][$i]['apellido']=$fila['APELLIDO'];
             $response['data'][$i]['direccion']=$fila['DIRECCION'];
@@ -58,7 +63,7 @@ class crudUsuario extends clientConex
 
 
     function prepareData($nombre, $correo, $contrasena, $estado, $idCliente){
-        $data['NOMBRE'] = '"'.$nombre.'"';
+        $data['NOMBREU'] = '"'.$nombre.'"';
         $data['correo'] = '"'.$correo.'"';
         $data['contrasena'] = '"'.$contrasena.'"';
         $data['estado'] = '"'.$estado.'"';
